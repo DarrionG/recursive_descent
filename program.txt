@@ -1,0 +1,26 @@
+program
+{
+    x, y: Float;
+
+    cin << x,y;
+    y := x+y;
+    cout >> y;
+
+    if (x <> y) {
+        y := x * y;
+        x := r / x;
+    }
+    else {
+        cin << a, b, c;
+        y := x % 3.14;
+    }
+
+    while (x < y) {
+        y := x + y;
+        repeat {
+            y := x;
+        }
+        until (x > y);
+    }
+   
+}
