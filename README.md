@@ -3,9 +3,14 @@ A recursive descent parser that produces a parse tree. This project is used only
 to understand and learn about some of the components that make up a compiler. This is not
 designed to be a functional language.
 
+Program.txt is a simulated language that the parser will analyze and produce errors as 
+necessary. Upon encoutering an error, the line number of the program with the error will
+be produced along with some description of the error. If the program grammer and syntax
+are correct, there should be no output.
+
 ## Language Grammer
 
-Rule 01: PROGRAM -> program { DECL_SEC STMT_SEC }
+- Rule 01: PROGRAM -> program { DECL_SEC STMT_SEC }
 - Rule 02: DECL_SEC -> DECL | DECL DECL_SEC
 - Rule 03: DECL -> ID_LIST : Float;
 - Rule 04: ID_LIST -> ID | ID , ID_LIST

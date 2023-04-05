@@ -6,10 +6,12 @@ public class recursive_descent_parser {
     //Global declarations
     private static int charClass;
     private static String lexeme;
+    private static String last_lexeme;
     private static char nextChar;
     private static int lexLen;
     private static int nextToken;
     private static String buffer;
+    private static String line_content;
     private static int program_line;
     private static BufferedReader reader;
     //Character classes
@@ -66,6 +68,7 @@ public class recursive_descent_parser {
         try {
             while (buffer == null || buffer.isEmpty()){
                 buffer = reader.readLine();
+                line_content = buffer.trim();
                 program_line++;
                 
             }
@@ -230,7 +233,7 @@ public class recursive_descent_parser {
         return nextToken;
     }
     public static int lex() {
-
+        last_lexeme = lexeme;
         if (buffer == null || buffer.isEmpty()) {
             readFileLine();
             getChar();
@@ -670,7 +673,8 @@ public class recursive_descent_parser {
         }
     }
     static void error () {
-        System.out.println("Error on line: " + program_line + " Invalid token: " + nextToken + " lexeme: " + lexeme);
+        System.out.println("Error on line: " + program_line + ": "+ line_content);
+        System.out.println("'" + last_lexeme + "'" + " is not valid");
         System.exit(0);
     }
     public static void main(String[] args) {
